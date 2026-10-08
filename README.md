@@ -2,16 +2,19 @@
 
 Send files between machines with a short code. End-to-end encrypted, peer-to-peer, **no server to run**.
 
-```
-$ pastebeam send report.zip              $ pastebeam get 7-tiger-lamp
+![pastebeam sending a file from one machine to another](screenshots/hero.png)
 
-  ╭───────────────────╮                   ✓ Connected to the sender · direct · QUIC · LAN 192.168.1.20
-  │   your code       │                   ✓ Code verified · SPAKE2 + ChaCha20-Poly1305
-  │   7-tiger-lamp    │                   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  100%  25.0 MB · 46 MB/s
-  ╰───────────────────╯                   ✓ SHA-256 checksum verified
+```sh
+pastebeam send project.zip       # prints a code like 511-honey-zebra
+pastebeam get 511-honey-zebra    # on the other machine
 ```
 
 Works between Linux, macOS, Windows and FreeBSD, in any combination. Send single files or whole folders.
+
+<p align="center">
+  <img src="screenshots/progress.png" alt="Transfer in progress" width="49%">
+  <img src="screenshots/help.png" alt="pastebeam help" width="49%">
+</p>
 
 ## Install
 
@@ -46,6 +49,8 @@ pastebeam get 7-tiger-lamp        # on the other machine
 pastebeam send file.zip --code 12-pick-your-own
 pastebeam get 7-tiger-lamp --out ~/Downloads --yes
 ```
+
+Set `CLICOLOR_FORCE=1` to keep colors when piping or recording the output.
 
 ## How it works
 
