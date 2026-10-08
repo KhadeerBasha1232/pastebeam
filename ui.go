@@ -55,6 +55,10 @@ var out = newUI()
 
 func newUI() *ui {
 	u := &ui{tty: term.IsTerminal(int(os.Stderr.Fd()))}
+	// CLICOLOR_FORCE=1 keeps full colors when output is piped or recorded.
+	if v := os.Getenv("CLICOLOR_FORCE"); v != "" && v != "0" {
+		re.SetColorProfile(termenv.TrueColor)
+	}
 	if u.tty {
 		termenv.EnableVirtualTerminalProcessing(termenv.NewOutput(os.Stderr))
 		go func() {
