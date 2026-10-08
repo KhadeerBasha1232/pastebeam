@@ -1,0 +1,4 @@
+/pastebeam
+*.exe
+/dist/
+.pastebeam-*.part
